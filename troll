@@ -1175,6 +1175,7 @@ ChatHUDFunc = function()
  
 	wait(9e9)
 end;
-
+game.Players.LocalPlayer.Character.Torso["Right Hip"]:Destroy()
+game.Players.LocalPlayer.Character.Torso["Left Hip"]:Destroy()
 task.spawn(ChatHUDFunc)
 task.spawn(ViewHUDFunc)
