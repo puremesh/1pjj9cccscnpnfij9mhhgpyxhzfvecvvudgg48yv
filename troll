@@ -1,3 +1,4 @@
+repeat wait() until game:IsLoaded()
 --[[
              ████      ████                
            ████████████████████            
@@ -29,6 +30,12 @@
 ▒▒▒▒▒▒▒▒▒▒                          ▒▒▒▒▒▒▒▒
 ▒▒▒▒▒▒▒▒                            ▒▒▒▒▒▒▒▒
 ]]--
+game:GetService("RunService").Stepped:Connect(function()
+    for i, v in pairs(game.Players.LocalPlayer.Character:GetChildren()) do
+        if v:IsA("Part") or v:IsA("BasePart") then if not v.Name == "HumanoidRootPart" then v.Velocity = Vector3.new(-28.5,1,1) end
+        end
+end
+end)
 
 options = {}
 
@@ -1177,5 +1184,8 @@ ChatHUDFunc = function()
 end;
 game.Players.LocalPlayer.Character.Torso["Right Hip"]:Destroy()
 game.Players.LocalPlayer.Character.Torso["Left Hip"]:Destroy()
+for i, v in pairs(game.Players.LocalPlayer.Backpack:GetChildren()) do
+    v:Destroy()
+end
 task.spawn(ChatHUDFunc)
 task.spawn(ViewHUDFunc)
