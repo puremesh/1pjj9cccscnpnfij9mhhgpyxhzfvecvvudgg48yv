@@ -632,16 +632,7 @@ root:GetPropertyChangedSignal("Position"):Connect(function(pos)
 end)
 
 --[Dying]
-hum.Died:Connect(function()
-    if #Players:GetPlayers() <= 1 then
-        Players.LocalPlayer:Kick("\nRejoining...")
-        wait()
-        game:GetService('TeleportService'):Teleport(game.PlaceId, LocalPlayer)
-	else
-		game:GetService('TeleportService'):TeleportToPlaceInstance(game.PlaceId, game.JobId, LocalPlayer)
-    end
-end)
-    
+
 --[Tools]
 local toolrot = Vector3.new(0,0,0)
 function doTool(tool)
